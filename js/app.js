@@ -3,6 +3,12 @@
 // var sessionId = "YOUR_SESSION_ID";
 // var token = "YOUR_TOKEN";
 
+const currentURL = window.location.href;
+const url = new URL(currentURL);
+const apikey = url.searchParams.get("apiKey");
+const sessionId = url.searchParams.get("sessionId");
+const token = url.searchParams.get("token");
+
 // Handling all of our errors here by alerting them
 function handleError(error) {
   if (error) {
@@ -17,6 +23,10 @@ const publishElement = document.getElementById("publish");
 const apiElement = document.getElementById("apiKey");
 const sessionIdElement = document.getElementById("sessionId");
 const tokenElement = document.getElementById("token");
+
+apiElement.value = apikey;
+sessionIdElement.value = sessionId;
+tokenElement.value = token;
 
 var currentSession = null;
 
